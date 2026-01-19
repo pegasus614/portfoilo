@@ -1,0 +1,50 @@
+/* ---------- RESET ---------- */
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:100%; height:100%; font-family: Arial, sans-serif; overflow: hidden; }
+
+/* ---------- PARTICLE CANVAS ---------- */
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* behind content */
+   background: linear-gradient(to right, #343f39, #0e0d0d);
+}
+
+/* ---------- PAGE CONTENT ---------- */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: #fff;
+  text-align: center;
+  padding-top: 80px;
+}
+h1 {
+  margin-bottom: 20px;
+}
+button {
+  margin: 10px;
+  padding: 10px 16px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  background-color:#080808;
+  color:#111;
+  font-weight:bold;
+  text-align: center;
+  height: 60px;
+  width: 90%;
+  box-shadow: 1px 2px rgb(14, 119, 110);
+
+}
+button:hover {
+  background-color:#6d9c8a;
+}
+
+/* ---------- OPTIONAL: LINKS ---------- */
+a { color: #fff; text-decoration: none; }
+a:hover { text-decoration: underline; }

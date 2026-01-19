@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Particles Background</title>
+<link rel="stylesheet" href="../css/link.css">
+</head>
+<body>
+<!-- CONTENT -->
+<section id="works">
+  
+  <h1 style="margin-top: -30px;"> My Works</h2>
+  <ul>
+    <h2><li style="margin-top: 30px;">
+      <a href="https://github.com/YourUsername">
+        <i class="fab fa-github"></i> My GitHub
+      </a>
+    </li></h2>
+    <button>
+    <li style="margin-top: 10px;">
+      <a href="https://eml-iota.vercel.app/">
+        🔗 Live Project Demo Eml
+      </a>
+    </li>
+    </button>
+   <button><li style="margin-top: 10px;">
+      <a href="https://mego-blue.vercel.app/">
+        🔗 Live Project Demo ticketmaster
+      </a>
+     </li></button>
+     <button><li style="margin-top: 10px;">
+      <a href="https://pro1-r3c4.vercel.app/">
+        🔗 Live Project Demo about me
+      </a>
+    </li></button>
+    <button><li style="margin-top: 10px;">
+      <a href="https://air-seven-pi.vercel.app/">
+        🔗 Live Project Demo air conditioning website
+      </a>
+    </li></button>
+    <button><li style="margin-top: 10px;">
+      <a href="https://xtra-goala.vercel.app/">
+        🔗 Live Project football website 
+      </a>
+    </li></button>
+    </li>
+  </ul>
+  
+</section>
+
+<h2 style="margin-top: 30px;"><a href="../html/index.html">Back</a></h2>
+
+<!-- Particle Canvas -->
+<canvas id="particles"></canvas>
+
+<script>
+/* ---------- PARTICLE BACKGROUND ---------- */
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+
+let particles = [];
+const particleCount = 150;
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  particles = [];
+  for (let i = 0; i < particleCount; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 2 + 1,
+      dx: (Math.random() - 0.5) * 0.5,
+      dy: (Math.random() - 0.5) * 0.5
+    });
+  }
+}
+
+function drawParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (let p of particles) {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255,255,255,0.7)';
+    ctx.fill();
+
+    // Move particle
+    p.x += p.dx;
+    p.y += p.dy;
+
+    // Bounce off edges
+    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+  }
+  requestAnimationFrame(drawParticles);
+}
+
+// Initialize
+resizeCanvas();
+drawParticles();
+window.addEventListener('resize', resizeCanvas);
+</script>
+
+</body>
+</html>
